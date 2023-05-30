@@ -1,0 +1,36 @@
+.second-nav-flex-div {
+  display: flex;
+  justify-content: center;
+}
+
+.second-nav-width-div {
+  width: 100%;
+}
+
+.second-nav-main-div {
+  /* padding: 10px; */
+  background-color: #232f3e;
+}
+
+.second-nav-main-flex-div {
+  display: flex;
+  gap: 5px;
+}
+
+.second-nav-main-contend-div {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.second-nav-main-contend-div:hover {
+  border: 1px solid white;
+}
+
+.second-nav-main-contend-div p {
+  margin: 0px;
+  color: white;
+}
+
+.hamber-svg {
+  color: white;
+}
