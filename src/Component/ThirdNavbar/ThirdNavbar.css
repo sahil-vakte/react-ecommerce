@@ -1,0 +1,32 @@
+.ThirdNavbar-flex-div{
+    display: flex;
+    justify-content: center;
+}
+
+.ThirdNavbar-width-div{
+    width: 100%;
+}
+
+.ThirdNavbar-main-div{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.ThirdNavbar-main-div-para-tag{
+    margin: 0px;
+    border-bottom: 2px solid red;
+    cursor: pointer;
+}
+
+.ThirdNavbar-main-div-two{
+    background-color: gray;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+.ThirdNavbar-main-div-two-padding{
+    padding: 20px;
+}
