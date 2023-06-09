@@ -17,24 +17,58 @@ const ProductsHomePage = () => {
     .map((index) => index.category)
     .filter((value, index, self) => self.indexOf(value) === index);
 
-
+  // SINGLE ONCLICK FILTER
   const handleCategoryName = (categoryselect) => {
     const FilterdedProducts = products.filter(
       (productsfilterbycategory) =>
         productsfilterbycategory.category === categoryselect
     );
-    setprintProducts(FilterdedProducts)
-  }
+    setprintProducts(FilterdedProducts);
+  };
+
+  // MULTIPLE CHECKBOX SELECT FILTER
 
 
-  // console.log("selectedCategory =>", selectedCategory);
+  const [selectedCategories, setselectedCategories] = useState([]);
 
-  return (  
+  const handleCategoryMultipleSelect = (category) => {
+
+    // using spread Operator soring the existing selected category with newly selected categort
+
+    const updatedCategories = [...selectedCategories];
+
+    if (updatedCategories.includes(category)) {
+      const index = updatedCategories.indexOf(category);
+      updatedCategories.splice(index, 1);
+    } else {
+      updatedCategories.push(category);
+    }
+    setselectedCategories(updatedCategories);
+    filterproducts(updatedCategories);
+
+    console.log("updatedCategories:::",  updatedCategories)
+  };
+
+  const filterproducts = (categories) => {
+    if (categories.length === 0) {
+      setprintProducts(products);
+    } else {
+      const newlyFilteredProducts = products.filter((product) =>
+        categories.includes(product.category)
+      );
+      console.log("newlyFilteredProducts::", newlyFilteredProducts);
+      setprintProducts(newlyFilteredProducts);
+    }
+  };
+
+  // console.log("selectedCategories :::", selectedCategories);
+
+  return (
     <div className="ProductsHomePage-flex-div">
       <div className="ProductsHomePage-width-div">
         <div className="ProductsHomePage-main-div">
           <div className="ProductsHomePage-main-div-one">
-            <div className="ProductsHomePage-main-div-one-padding">
+            {/* <div className="ProductsHomePage-main-div-one-padding">
               {AllCategory &&
                 AllCategory?.map((index) => (
                   <div style={{ textAlign: "left" }}>
@@ -44,6 +78,21 @@ const ProductsHomePage = () => {
                     >
                       {index}
                     </h1>
+                  </div>
+                ))}
+            </div> */}
+            <div className="ProductsHomePage-main-div-one-padding">
+              {AllCategory &&
+                AllCategory?.map((category) => (
+                  <div style={{ textAlign: "left" }}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={selectedCategories.includes(category)}
+                        onChange={() => handleCategoryMultipleSelect(category)}
+                      />
+                      {category}
+                    </label>
                   </div>
                 ))}
             </div>
