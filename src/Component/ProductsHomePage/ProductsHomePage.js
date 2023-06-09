@@ -13,12 +13,11 @@ const ProductsHomePage = () => {
     });
   }, []);
 
-
   const AllCategory = products
     .map((index) => index.category)
     .filter((value, index, self) => self.indexOf(value) === index);
 
-    
+
   const handleCategoryName = (categoryselect) => {
     const FilterdedProducts = products.filter(
       (productsfilterbycategory) =>
@@ -30,7 +29,7 @@ const ProductsHomePage = () => {
 
   // console.log("selectedCategory =>", selectedCategory);
 
-  return (
+  return (  
     <div className="ProductsHomePage-flex-div">
       <div className="ProductsHomePage-width-div">
         <div className="ProductsHomePage-main-div">
